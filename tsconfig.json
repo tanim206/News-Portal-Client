@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "src/auth/index.tss"  ],
   "exclude": ["node_modules"]
 }

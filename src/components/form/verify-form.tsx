@@ -73,7 +73,7 @@ export default function VerifyAccountForm() {
           refetchType: "all",
         });
 
-        router.replace("/administrator");
+        router.replace("/dashboard/administrator");
         router.refresh();
       },
 
