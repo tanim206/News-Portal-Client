@@ -233,3 +233,56 @@
     color: var(--primary-foreground);
   }
 }
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-hind-siliguri);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Breaking News Animation */
+
+.breaking-news-track {
+  animation: breaking-news-scroll 35s linear infinite;
+}
+
+.breaking-news-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes breaking-news-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Hide Horizontal Scrollbar */
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breaking-news-track {
+    animation: none;
+  }
+}
