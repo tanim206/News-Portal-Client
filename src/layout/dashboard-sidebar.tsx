@@ -27,6 +27,7 @@ import {
 import { SidebarItems, UserRole } from "@/types";
 import { adminRoutes } from "@/routes/admin.route";
 import UserMenu from "@/components/common/user-manu";
+import NewsPortalLogo from "@/components/common/logo";
 
 // ======================================================
 // 1. SIDEBAR STYLE CONFIGURATION
@@ -269,25 +270,14 @@ export function DashboardSidebar({ role }: { role: UserRole }) {
             <div className="flex h-10 items-center justify-between gap-2">
               {/* Logo */}
 
-              <Link
-                href="/"
+              <div
                 className="
-                  flex min-w-0 flex-1 items-center gap-2
+                  flex min-w-0 justify-center flex-1 items-center gap-2
                   overflow-hidden
                 "
               >
-                <div
-                  className={`
-                    flex size-8 shrink-0 items-center
-                    justify-center rounded-lg
-                    ${SIDEBAR_STYLES.logo.background}
-                    ${SIDEBAR_STYLES.logo.text}
-                    text-sm font-bold
-                  `}
-                >
-                  Logo
-                </div>
-              </Link>
+                <NewsPortalLogo />
+              </div>
 
               {/* Collapse Button */}
 
