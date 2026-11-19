@@ -52,7 +52,7 @@ export default function CreateCategoryPage() {
   });
 
   return (
-    <main className="min-h-[calc(100vh-4rem)] w-full bg-slate-100 px-4 py-7 sm:px-6 lg:px-8">
+    <main className="min-h-[calc(100vh-4rem)] w-full px-4 py-7 sm:px-6 lg:px-8">
       <div className="w-full space-y-7">
         {/* Page Header */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -90,7 +90,7 @@ export default function CreateCategoryPage() {
               event.stopPropagation();
               form.handleSubmit();
             }}
-            className="min-w-0 space-y-7 rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7 lg:p-8"
+            className="min-w-0 space-y-7 rounded-lg border border-slate-200 bg-white p-5 shadow sm:p-7 lg:p-8"
           >
             <div className="space-y-1">
               <h2 className="text-lg font-semibold text-slate-900">

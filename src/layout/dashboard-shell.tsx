@@ -37,7 +37,7 @@ export default function DashboardShell({
     >
       <DashboardSidebar role={role} />
 
-      <SidebarInset className="min-h-svh min-w-0 bg-background">
+      <SidebarInset className="min-h-svh min-w-0 bg-gray-100">
         {/* Dashboard Header */}
         <header
           className="

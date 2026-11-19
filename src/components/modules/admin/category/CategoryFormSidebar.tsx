@@ -14,7 +14,7 @@ export function CategoryFormSidebar() {
   return (
     <aside className="space-y-5">
       {/* Guidelines */}
-      <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="rounded-lg border border-slate-200 bg-white p-5 shadow">
         <div className="mb-4 flex items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
             <Lightbulb className="size-5" />
@@ -46,7 +46,7 @@ export function CategoryFormSidebar() {
       </div>
 
       {/* Slug Example */}
-      <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="rounded-lg border border-slate-200 bg-white p-5 shadow">
         <div className="mb-3 flex items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
             <Link2 className="size-5" />
@@ -74,7 +74,7 @@ export function CategoryFormSidebar() {
       </div>
 
       {/* Publishing Info */}
-      <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="rounded-lg border border-slate-200 bg-white p-5 shadow">
         <div className="mb-3 flex items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
             <Globe className="size-5" />
@@ -118,7 +118,7 @@ export function CategoryFormSidebar() {
       </div>
 
       {/* Small Footer Card */}
-      <div className="rounded-xl border border-primary/15 bg-primary/[0.04] p-5">
+      <div className="rounded-lg border border-primary/15 bg-primary/[0.04] p-5">
         <div className="flex items-center gap-3">
           <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
             <FolderOpen className="size-5" />

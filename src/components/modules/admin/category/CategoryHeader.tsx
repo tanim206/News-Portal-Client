@@ -51,7 +51,7 @@ export function CategoryHeader({
         </div>
 
         <Link
-          href="/dashboard/administrator/categories/create"
+          href="/categories/create"
           className="h-10 bg-primary flex justify-center items-center px-4 text-white rounded-lg text-sm shrink-0"
         >
           <Plus className="mr-2 size-4" />

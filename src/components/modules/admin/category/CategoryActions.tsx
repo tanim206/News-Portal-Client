@@ -30,7 +30,7 @@ export function CategoryActions({
 
   const handleEdit = () => {
     router.push(
-      `/dashboard/administrator/categories/edit/${category.categoryId}`,
+      `/categories/edit/${category.categoryId}`,
     );
   };
 

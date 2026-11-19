@@ -54,7 +54,7 @@ export function CategoryTable({ categories, loading }: CategoryTableProps) {
 
   if (loading) {
     return (
-      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white p-5 shadow">
         <div className="space-y-4">
           <Skeleton className="h-6 w-40" />
           {[...Array(5)].map((_, index) => (

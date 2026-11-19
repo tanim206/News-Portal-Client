@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { FolderOpen, Layers3, CheckCircle2 } from "lucide-react";
 
 import { useGetAllCategories } from "@/hooks/category.hook";
@@ -34,8 +33,6 @@ function CategoryStat({
 }
 
 export default function CategoriesPage() {
-  const router = useRouter();
-
   const [search, setSearch] = useState("");
 
   const { data, isPending, isError, error, refetch } = useGetAllCategories({
@@ -58,7 +55,6 @@ export default function CategoriesPage() {
       <CategoryHeader
         search={search}
         onSearchChange={setSearch}
-        onAdd={() => router.push("/dashboard/administrator/categories/create")}
       />
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

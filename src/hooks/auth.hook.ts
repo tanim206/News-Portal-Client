@@ -1,15 +1,9 @@
-import { adminLogin, adminLogout, getMe, verifyAccount } from "@/api";
+import { adminLogin, adminLogout, getMe } from "@/api";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 export function useLogin() {
   return useMutation({
     mutationFn: adminLogin,
-  });
-}
-
-export function useVerifyAccount() {
-  return useMutation({
-    mutationFn: verifyAccount,
   });
 }
 

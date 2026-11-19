@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import type { SidebarItems } from "@/types/sidebar.type";
 
-const prefix = "/dashboard/administrator";
+// const prefix = "/dashboard/administrator";
 
 export const adminRoutes: SidebarItems = [
   // ১. ওভারভিউ এবং অ্যানালিটিক্স
@@ -25,7 +25,7 @@ export const adminRoutes: SidebarItems = [
     items: [
       {
         title: "Dashboard",
-        url: prefix,
+        url: "/administrator",
         icon: LayoutDashboard,
       },
     ],
@@ -37,22 +37,22 @@ export const adminRoutes: SidebarItems = [
     items: [
       {
         title: "All Articles",
-        url: `${prefix}/articles`,
+        url: `/articles`,
         icon: Newspaper,
       },
       {
         title: "Create Article",
-        url: `${prefix}/articles/create`,
+        url: `/articles/create`,
         icon: FilePlus2,
       },
       {
         title: "Breaking News",
-        url: `${prefix}/articles/breaking`,
+        url: `/articles/breaking`,
         icon: Flame,
       },
       {
         title: "Featured / Lead News",
-        url: `${prefix}/articles/featured`,
+        url: `/articles/featured`,
         icon: Star,
       },
     ],
@@ -64,17 +64,17 @@ export const adminRoutes: SidebarItems = [
     items: [
       {
         title: "Categories",
-        url: `${prefix}/categories`,
+        url: `/categories`,
         icon: LayoutGrid,
       },
       {
         title: "Divisions & Districts",
-        url: `${prefix}/locations`,
+        url: `/locations`,
         icon: MapPin,
       },
       {
         title: "Tags & Keywords",
-        url: `${prefix}/tags`,
+        url: `/tags`,
         icon: Tags,
       },
     ],
@@ -86,12 +86,12 @@ export const adminRoutes: SidebarItems = [
     items: [
       {
         title: "Media Gallery",
-        url: `${prefix}/media`,
+        url: `$/media`,
         icon: ImageIcon,
       },
       {
         title: "Ad Placements",
-        url: `${prefix}/ads`,
+        url: `/ads`,
         icon: Megaphone,
       },
     ],
@@ -103,17 +103,17 @@ export const adminRoutes: SidebarItems = [
     items: [
       {
         title: "Admin Profile",
-        url: `${prefix}/profile`,
+        url: `/profile`,
         icon: UserCog,
       },
       {
         title: "Change Password",
-        url: `${prefix}/change-password`,
+        url: `/change-password`,
         icon: KeyRound,
       },
       {
         title: "Portal Settings",
-        url: `${prefix}/settings`,
+        url: `/settings`,
         icon: Settings,
       },
       {

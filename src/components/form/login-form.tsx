@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "@tanstack/react-form";
+import { useQueryClient } from "@tanstack/react-query";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Field, FieldError, FieldGroup, FieldLabel } from "../ui/field";
@@ -13,9 +14,33 @@ import { toast } from "../ui/toast";
 import { Spinner } from "../ui/spinner";
 import { loginSchema } from "@/validation";
 
+const DEFAULT_ADMIN_REDIRECT = "/administrator";
+
+const resolveAdminRedirect = () => {
+  if (typeof window === "undefined") {
+    return DEFAULT_ADMIN_REDIRECT;
+  }
+
+  const callbackUrl = new URLSearchParams(window.location.search).get(
+    "callbackUrl",
+  );
+
+  if (
+    !callbackUrl ||
+    !callbackUrl.startsWith("/") ||
+    callbackUrl.startsWith("//") ||
+    callbackUrl.includes("\\")
+  ) {
+    return DEFAULT_ADMIN_REDIRECT;
+  }
+
+  return callbackUrl;
+};
+
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
+  const queryClient = useQueryClient();
 
   const { mutate: login, isPending: loginPending } = useLogin();
 
@@ -34,14 +59,20 @@ export default function LoginForm() {
       };
 
       login(loginData, {
-        onSuccess: (res) => {
+        onSuccess: () => {
           toast.add({
             title: "Login Success",
             description: "Welcome back",
             type: "success",
           });
-          const params = new URLSearchParams({ email: loginData.email });
-          router.push(`/verify-admin?${params.toString()}`);
+
+          queryClient.invalidateQueries({
+            queryKey: ["user"],
+            refetchType: "all",
+          });
+
+          router.replace(resolveAdminRedirect());
+          router.refresh();
         },
 
         onError: (err) => {

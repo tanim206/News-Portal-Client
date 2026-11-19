@@ -25,7 +25,7 @@ interface EditCategoryFormProps {
   categoryId: string;
 }
 
-const categoriesPath = "/dashboard/administrator/categories";
+const categoriesPath = "/categories";
 
 function getFieldError(errors: unknown[]) {
   return errors

@@ -1,61 +1,101 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog"
-import { cn } from "cn"
+import * as React from "react";
+import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";
+import { cn } from "cn";
 
+// Root
 function AlertDialog({ ...props }: AlertDialogPrimitive.Root.Props) {
-  return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />
+  return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;
 }
 
+// Trigger
 function AlertDialogTrigger({ ...props }: AlertDialogPrimitive.Trigger.Props) {
-  return <AlertDialogPrimitive.Trigger data-slot="alert-dialog-trigger" {...props} />
+  return (
+    <AlertDialogPrimitive.Trigger data-slot="alert-dialog-trigger" {...props} />
+  );
 }
 
+// Content
 function AlertDialogContent({
   className,
   ...props
-}: React.ComponentProps<"div"> & { className?: string }) {
+}: React.ComponentProps<typeof AlertDialogPrimitive.Popup>) {
   return (
     <AlertDialogPrimitive.Portal>
+      {/* Background Overlay */}
       <AlertDialogPrimitive.Backdrop
         className={cn(
-          "inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
+          `
+            fixed inset-0 z-50
+            bg-black/35
+            backdrop-blur-[3px]
+            transition-all duration-200
+            data-[open]:animate-in
+            data-[closed]:animate-out
+            data-[closed]:fade-out-0
+            data-[open]:fade-in-0
+          `,
         )}
       />
+
+      {/* Dialog Popup */}
       <AlertDialogPrimitive.Popup
         className={cn(
-          "relative z-50 w-full max-w-md rounded-lg border bg-popover p-6 shadow-lg outline-none sm:max-w-lg",
-          className
+          `
+            fixed left-1/2 top-1/2 z-50
+            w-[calc(100%-2rem)] max-w-md
+            -translate-x-1/2 -translate-y-1/2
+            rounded-xl
+            border border-border
+            bg-card p-6
+            text-card-foreground
+            shadow-2xl
+            outline-none
+            duration-200
+            data-[open]:animate-in
+            data-[closed]:animate-out
+            data-[open]:fade-in-0
+            data-[closed]:fade-out-0
+            data-[open]:zoom-in-95
+            data-[closed]:zoom-out-95
+            sm:max-w-md
+          `,
+          className,
         )}
         {...props}
       />
     </AlertDialogPrimitive.Portal>
-  )
+  );
 }
 
+// Title
 function AlertDialogTitle({
   className,
   ...props
-}: AlertDialogPrimitive.Title.Props & { className?: string }) {
+}: AlertDialogPrimitive.Title.Props) {
   return (
     <AlertDialogPrimitive.Title
-      className={cn("text-lg font-semibold", className)}
+      className={cn(
+        "text-lg font-semibold tracking-tight text-foreground",
+        className,
+      )}
       {...props}
     />
-  )
+  );
 }
 
+// Description
 function AlertDialogDescription({
   className,
   ...props
-}: AlertDialogPrimitive.Description.Props & { className?: string }) {
+}: AlertDialogPrimitive.Description.Props) {
   return (
     <AlertDialogPrimitive.Description
-      className={cn("text-sm text-muted-foreground", className)}
+      className={cn("text-sm leading-6 text-muted-foreground", className)}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -64,4 +104,4 @@ export {
   AlertDialogContent,
   AlertDialogTitle,
   AlertDialogDescription,
-}
+};
