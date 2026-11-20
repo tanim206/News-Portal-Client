@@ -12,6 +12,7 @@ import type {
   ICreateArticlePayload,
   IUpdateArticlePayload,
 } from "@/types";
+import ArticleContentEditor from "./article-content-editor";
 
 interface ArticleFormProps {
   article?: IArticle;
@@ -144,8 +145,12 @@ export default function ArticleForm({ article, mode }: ArticleFormProps) {
     if (form.excerpt.trim().length < 10) {
       nextErrors.excerpt = "Excerpt must be at least 10 characters.";
     }
+    const plainContent = form.content
+      .replace(/<[^>]*>/g, "")
+      .replace(/&nbsp;/g, " ")
+      .trim();
 
-    if (!form.content.trim()) {
+    if (!plainContent) {
       nextErrors.content = "Article content is required.";
     }
 
@@ -275,18 +280,19 @@ export default function ArticleForm({ article, mode }: ArticleFormProps) {
 
             <div>
               <label className={labelClass}>Article Content *</label>
-              <textarea
+
+              <ArticleContentEditor
                 value={form.content}
-                onChange={(e) => setField("content", e.target.value)}
-                rows={16}
-                placeholder="Write your full article content..."
-                className="w-full rounded-lg border border-gray-200 p-3 text-sm leading-7 outline-none focus:border-[#176B45] focus:ring-2 focus:ring-[#176B45]/10"
+                onChange={(value) => setField("content", value)}
+                error={errors.content}
               />
+
               {errors.content && (
                 <p className="mt-1 text-xs text-red-600">{errors.content}</p>
               )}
+
               <p className="mt-1 text-xs text-gray-400">
-                Plain text content is supported by this form.
+                Use the toolbar to format your article content.
               </p>
             </div>
           </section>

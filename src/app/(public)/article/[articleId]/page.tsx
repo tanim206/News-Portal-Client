@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { getSinglePublishedArticle } from "@/api/article.api";
+import ArticleContent from "@/components/modules/public/article/article-content";
 
 interface ArticleDetailsPageProps {
   params: Promise<{
@@ -62,8 +63,7 @@ export default async function ArticleDetailsPage({
         </div>
       )}
 
-      <article className="prose prose-lg max-w-none">{article.content}</article>
-
+     <ArticleContent content={article.content} />
       {article.source && (
         <p className="mt-8 text-sm text-gray-500">Source: {article.source}</p>
       )}
