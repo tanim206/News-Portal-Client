@@ -83,3 +83,15 @@ export async function toggleCategoryStatus(
 
   return res as ICategoryResponse<ICategory>;
 }
+export async function getPublicCategories(): Promise<ICategory[]> {
+  const response = await apiClient<ICategoryResponse<ICategoryListResponse>>(
+    "/categories",
+    {
+      method: "GET",
+    },
+  );
+
+  console.log("Public Categories Response:", response);
+
+  return response.data.data;
+}

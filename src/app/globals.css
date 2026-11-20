@@ -253,7 +253,7 @@
 /* Breaking News Animation */
 
 .breaking-news-track {
-  animation: breaking-news-scroll 35s linear infinite;
+  animation: breaking-news-scroll 32.5s linear infinite;
 }
 
 .breaking-news-track:hover {

@@ -40,11 +40,7 @@ export const adminRoutes: SidebarItems = [
         url: `/articles`,
         icon: Newspaper,
       },
-      {
-        title: "Create Article",
-        url: `/articles/create`,
-        icon: FilePlus2,
-      },
+
       {
         title: "Breaking News",
         url: `/articles/breaking`,

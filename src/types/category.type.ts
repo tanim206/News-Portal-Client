@@ -44,3 +44,4 @@ export interface ICategoryQueryParams {
   page?: number;
   limit?: number;
 }
+
